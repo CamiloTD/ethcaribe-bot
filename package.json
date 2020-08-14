@@ -1,0 +1,15 @@
+{
+  "name": "ethcaribe-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CamiloTD/ethcaribe-bot.git",
+  "author": "CamiloTD <camilotd1999@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node-telegram-bot-api": "^0.50.2",
+    "dotenv": "^8.2.0",
+    "node-telegram-bot-api": "^0.50.0",
+    "ts-node-dev": "^1.0.0-pre.57"
+  }
+}

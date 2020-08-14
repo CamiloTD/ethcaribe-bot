@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "target": "ES2018",
+        "emitDecoratorMetadata": true,
+        "outDir": "./build",
+        "declaration": true,
+        "sourceMap": true,
+        "module": "commonjs",
+        "noImplicitUseStrict": true
+    },
+    "typedocOptions": {
+        "inputFiles": ["./index.ts"],
+        "mode": "file",
+        "out": "docs"
+    },
+    "files": ["./index.ts"],
+    "exclude": ["**/node_modules", "**/*.spec.ts"],
+    "compileOnSave": true
+}
