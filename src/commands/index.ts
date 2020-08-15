@@ -17,12 +17,10 @@ export function $notFound (user: User, command: string) {
 
 //     return `
 //         🌟 Listo! Has sido registrado con la dirección: ${bold(address)} 🌟
-                
 //         ❓ Si no sabes que es ENS, para qué sirve o como funciona, usa <b>/sobre ens</b>
 
-//         Vamos a configurar tu propio dominio .caribe.eth! 
+//         Vamos a configurar tu propio dominio .caribe.eth!
 //         Usa <b>/dominio ${toId(user.name)}.caribe.eth</b> o inventate el tuyo para registrarlo!
-        
 //         Por ser la primera vez, la casa correrá con los gastos. 😁
 //     `;
 // }
@@ -35,6 +33,13 @@ export async function start (user: User) {
 
         Tengo a mi disposición las herramientas para guiarte en el aprendizaje sobre el mundo crypto.
     `);
-    
+
     if(!user.address) return await user.createSession("registerWallet");
+}
+
+export async function salir (user: User) {
+    console.log(user.id)
+    await reply(user.id,`
+        muerete viejo
+    `);
 }
