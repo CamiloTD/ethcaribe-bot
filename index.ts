@@ -1,10 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api';
-import dotenv from "dotenv";
 import { log, highlight, cold, danger } from "termx";
+import { BOT_TOKEN } from "./env";
 
-dotenv.config();
-
-const { BOT_TOKEN } = process.env;
 export const bot = new TelegramBot(BOT_TOKEN, { polling: true });
 
 bot.on('message', async function (msg) {
@@ -44,3 +41,4 @@ import * as Sessions from './src/commands/sessions';
 import * as Commands from './src/commands';
 import { getMessageUser, createUser } from './src/modules/user';
 import { reply } from "./src/utils/messages";
+import './src/modules/aragon';
