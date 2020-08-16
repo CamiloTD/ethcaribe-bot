@@ -1,13 +1,37 @@
-import { keyboardResponse, KEYBOARD_YES_NO } from "../utils/keyboard";
-import { isValidAddress, toId } from "../utils/string";
-import { createUser, getMessageUser, User } from "../controller/user";
-import { Message } from "node-telegram-bot-api";
-import { bold } from "../styles";
+import { getTopicByName, getTopicList } from "../modules/topics";
+import { User } from "../modules/user";
 import { reply } from "../utils/messages";
+import { bold } from "../styles";
 
 
 export function $notFound (user: User, command: string) {
     return `Oye, El comando ${command} no existe 😓`;
+}
+
+export async function info (user: User, topic: string) {
+
+    //TODO: Improve filter
+    if(!topic) {
+        const topicList = await getTopicList();
+
+        return `
+            🏢 Aquí tienes una lista de temas que pueden interesarte:
+
+            ${topicList.map(topic => 
+                `-  /info ${topic}\n`    
+            )}
+        `;
+    }
+
+    const topicData = await getTopicByName(topic);
+
+    if(!topicData) return `Lo siento, no se nada al respecto 😓... Pero seguro que mis amigos si! Pregunta al respecto en el chat de Ethereum Caribe 🎉`;
+
+    return `
+        Información sobre ${bold(topic)}:
+
+        ${topicData}
+    `;
 }
 
 // export async function wallet (user: User, address: string) {

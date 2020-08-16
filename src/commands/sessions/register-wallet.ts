@@ -1,5 +1,5 @@
 import { Message } from "node-telegram-bot-api";
-import { User } from '../../controller/user';
+import { User } from '../../modules/user';
 import { ADDRESS_REGEX } from "../../utils/regex";
 import { keyboardResponse, KEYBOARD_YES_NO } from "../../utils/keyboard";
 

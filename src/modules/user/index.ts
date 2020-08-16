@@ -1,3 +1,4 @@
+import { AUTH_USER } from "../../utils/enums";
 import { Message } from "node-telegram-bot-api";
 
 const Users: { [key: string]: User } = {};
@@ -9,6 +10,8 @@ export class User {
     constructor (
         public name: string,
         public id: string,
+
+        public auth: number = AUTH_USER,
 
         public address?: string,        
         public ens?: string,
@@ -43,4 +46,4 @@ export function getMessageUser(msg: Message) {
     return getUserById(msg.from.id.toString());
 }
 
-import * as Sessions from '../commands/sessions';
+import * as Sessions from '../../commands/sessions';
