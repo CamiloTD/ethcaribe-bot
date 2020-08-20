@@ -31,10 +31,10 @@ bot.on('message', async function (msg) {
         log(danger(exc));
         response = "😓 Ha ocurrido un pequeño error, por favor intentalo de nuevo mas tarde. (" + (exc.message || exc) + ").";
     }
-
+    
+    await user.save();
     await reply(user.id, response);
 })
-
 
 
 import * as Sessions from './src/commands/sessions';
@@ -42,3 +42,9 @@ import * as Commands from './src/commands';
 import { getMessageUser, createUser } from './src/modules/user';
 import { reply } from "./src/utils/messages";
 import './src/modules/aragon';
+import { initDatabase } from "./src/models/db/index";
+
+
+initDatabase().then(db => {
+    log(highlight("✨ Connected to Database!"))
+}).catch(err => log(danger(err.toString())));

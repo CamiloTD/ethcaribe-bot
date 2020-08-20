@@ -1,7 +1,7 @@
 import { Message } from "node-telegram-bot-api";
-import { User } from '../../modules/user';
 import { ADDRESS_REGEX } from "../../utils/regex";
 import { keyboardResponse, KEYBOARD_YES_NO } from "../../utils/keyboard";
+import { User } from "../../models/db";
 
 export function $create () {
     return keyboardResponse("Ya tienes una billetera Ethereum?", KEYBOARD_YES_NO);

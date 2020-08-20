@@ -8,8 +8,12 @@
   "dependencies": {
     "@aragon/wrapper": "^5.0.0",
     "@truffle/hdwallet-provider": "^1.0.42",
+    "@typegoose/typegoose": "^7.3.2",
     "@types/dotenv": "^8.2.0",
     "@types/node-telegram-bot-api": "^0.50.2",
+    "jdenticon": "^3.0.1",
+    "mongoose": "^5.10.0",
+    "node-html-to-image": "^3.0.1",
     "node-telegram-bot-api": "^0.50.0",
     "termx": "^1.1.9",
     "ts-node-dev": "^1.0.0-pre.57"

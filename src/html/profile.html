@@ -1,0 +1,51 @@
+<style>
+    body {
+        width: 800px;
+        height: 300px;
+    }
+
+    .main-card {
+        display: grid;
+        box-shadow: 2px 2px 4px rgba(0,0,0,.125);
+        border: 1px solid #DDD;
+        padding: 20px;
+        font-family: Roboto;
+
+        grid-template-columns: 1fr 1fr;
+        background: #FCFCFC;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .address {
+        font-style: italic;
+        color: #999;
+        font-size: 10px;
+    }
+
+    .points {
+        font-size: 30px;
+    }
+
+    .point-frame {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+</style>
+<div class="main-card">
+    <div>
+        @@pic@@
+        <div class="address">{{address}}</div>
+    </div>
+    <div>
+        <center><span class="title"><b>{{name}}</b></span></center>
+
+        <div class="point-frame">
+            <span class="points">🌟 {{exp}}</span> <span class="points">💲{{points}}</span>
+        </div>
+
+        <br/>
+    </div>
+</div>
