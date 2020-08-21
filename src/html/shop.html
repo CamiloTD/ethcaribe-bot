@@ -1,0 +1,87 @@
+<style>
+    body {
+        width: 800px;
+        height: 300px;
+    }
+
+    .main-card {
+        display: grid;
+        
+        box-shadow: 2px 2px 4px rgba(0,0,0,.125);
+        padding: 20px;
+        font-family: Roboto;
+
+        background: #333;
+        align-items: center;
+        color: white;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: 64px auto 64px;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 50;
+        font-family: "aurora";
+        color: #7AA;
+        text-shadow: 1px 1px 2px rgba(0,0,0,.125);
+    }
+
+    .global-progress {
+        display: grid;
+        grid-template-columns: 128px auto;
+        align-items: center;
+    }
+
+    .progress {
+        display: grid;
+    }
+
+    .progress-bar {
+        width: 250px;
+        height: 32px;
+        background: #7AA;
+    }
+
+    .progress-frame {
+        width: 500px;
+        height: 30px;
+        border: 2px solid #122;
+        color: white;
+        text-align: center;
+        display: grid;
+        align-items: center ;
+    }
+
+    .global-progress img {
+        width: 128px;
+        font-family: roboto;
+    }
+    
+</style>
+<div class="main-card">
+    <div class="header">
+        <div class="points">🚀 13 </div>
+        <div class="title">
+            <center>La Tienda</center>
+        </div>
+        <div class="points">🌟 155 </div>
+    </div>
+
+    <div class="global-progress">
+        <div class="image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/ETHEREUM-YOUTUBE-PROFILE-PIC.png"/>
+        </div>
+        <div class="progress">
+            <div class="progress-level">Nivel 1 - Recompensa: (0.1 ETH)</div>
+            <div class="progress-bar">
+                <div class="progress-frame">
+                    50%
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

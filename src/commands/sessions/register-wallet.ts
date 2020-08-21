@@ -1,13 +1,13 @@
 import { Message } from "node-telegram-bot-api";
 import { ADDRESS_REGEX } from "../../utils/regex";
 import { keyboardResponse, KEYBOARD_YES_NO } from "../../utils/keyboard";
-import { User } from "../../models/db";
+import { User, UserModel } from "../../models/db";
 
 export function $create () {
     return keyboardResponse("Ya tienes una billetera Ethereum?", KEYBOARD_YES_NO);
 }
 
-export default function ({ text }: Message, user: User) {
+export default async function ({ text }: Message, user: User) {
     const session = user.currentSession.data;
 
     //? Si la respuesta es si, no, o una address
@@ -17,7 +17,11 @@ export default function ({ text }: Message, user: User) {
 
         if(!address) return "Puedes enviarme tu dirección pública?";
         
-        user.address = address[0];
+        const existingUser = await UserModel.findOne({ address: address[0].toLowerCase() });
+        if(existingUser)
+            return "Hey! Parece que esa dirección ya ha sido registrada por: " + existingUser.name + ".  Si esta dirección es tuya, por favor ve a {{LinkConfirmarDireccion}} para registrarla."
+
+        user.address = address[0].toLowerCase();
         user.exitSession();
 
         return keyboardResponse(`✨ Listo calixto! Hemos registrado tu wallet! Ahora eres ya oficialmente parte de CaribeEth! ✨`, [

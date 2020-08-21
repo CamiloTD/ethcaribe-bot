@@ -9,9 +9,20 @@ export async function createUser (msg: Message) {
 }
 
 export async function getUserById (id: string): Promise<User> {
-    return await UserModel.findOne({ id });
+    const user = await UserModel.findOne({ id });
+    return user;
 }
 
 export function getMessageUser(msg: Message) {
     return getUserById(msg.from.id.toString());
+}
+
+export function pointStats () {
+    return UserModel.aggregate([
+        { $group: {
+            _id: null,
+            exp: { $sum: "$exp" },
+            points: { $sum: "$points" }
+        }}
+    ])
 }
